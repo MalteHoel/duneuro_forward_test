@@ -1,0 +1,3 @@
+# ignore .vtu and .vtk files
+*.vtu
+*.vtk

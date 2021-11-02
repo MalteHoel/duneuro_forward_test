@@ -1,0 +1,12 @@
+################################
+# Dune module information file #
+################################
+
+# Name of the module
+Module: test_localized_subtraction
+Version: 0.1
+Maintainer: m_hoel20@uni-muenster.de
+# Required build dependencies
+Depends: duneuro
+# Optional build dependencies
+#Suggests:
