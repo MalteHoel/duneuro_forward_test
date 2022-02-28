@@ -1,4 +1,4 @@
-/* begin test_localized_subtraction
+/* begin test_localized_subtraction_eeg
    put the definitions for config.h specific to
    your project here. Everything above will be
    overwritten
@@ -28,18 +28,18 @@
 
 /* end private */
 
-/* Define to the version of test_localized_subtraction */
+/* Define to the version of test_localized_subtraction_eeg */
 #define TEST_LOCALIZED_SUBTRACTION_VERSION "@TEST_LOCALIZED_SUBTRACTION_VERSION@"
 
-/* Define to the major version of test_localized_subtraction */
+/* Define to the major version of test_localized_subtraction_eeg */
 #define TEST_LOCALIZED_SUBTRACTION_VERSION_MAJOR @TEST_LOCALIZED_SUBTRACTION_VERSION_MAJOR@
 
-/* Define to the minor version of test_localized_subtraction */
+/* Define to the minor version of test_localized_subtraction_eeg */
 #define TEST_LOCALIZED_SUBTRACTION_VERSION_MINOR @TEST_LOCALIZED_SUBTRACTION_VERSION_MINOR@
 
-/* Define to the revision of test_localized_subtraction */
+/* Define to the revision of test_localized_subtraction_eeg */
 #define TEST_LOCALIZED_SUBTRACTION_VERSION_REVISION @TEST_LOCALIZED_SUBTRACTION_VERSION_REVISION@
 
-/* end test_localized_subtraction
+/* end test_localized_subtraction_eeg
    Everything below here will be overwritten
 */

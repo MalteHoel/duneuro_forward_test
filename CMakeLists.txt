@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(test_localized_subtraction CXX)
+project(test_localized_subtraction_eeg CXX)
 
 if(NOT (dune-common_DIR OR dune-common_ROOT OR
       "${CMAKE_PREFIX_PATH}" MATCHES ".*dune-common.*"))

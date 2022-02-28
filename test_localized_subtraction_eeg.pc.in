@@ -8,7 +8,7 @@ DEPENDENCIES=@REQUIRES@
 
 Name: @PACKAGE_NAME@
 Version: @VERSION@
-Description: test_localized_subtraction module
+Description: test_localized_subtraction_eeg module
 URL: http://dune-project.org/
 Requires: duneuro
 Libs: -L${libdir}

@@ -1,1 +1,1 @@
-add_subdirectory(test_localized_subtraction)
+add_subdirectory(test_localized_subtraction_eeg)
