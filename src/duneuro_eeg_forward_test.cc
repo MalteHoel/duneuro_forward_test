@@ -132,11 +132,13 @@ int main(int argc, char** argv)
     
     
     // read dipole
+    std::cout << " Reading dipoles\n";
     std::vector<duneuro::Dipole<ScalarType, dim>> dipoles = duneuro::DipoleReader<ScalarType, dim>::read(config_tree.get<std::string>("dipole.filename"));
+    std::cout << " Dipoles read\n";
     duneuro::Dipole<ScalarType, dim> my_dipole = dipoles[0];
     
     // get EEG forward solution
-    std::cout << " Solve EEG forward problem\n";
+    std::cout << " Solve EEG forward problem numerically\n";
     std::unique_ptr<duneuro::Function> solution_storage_ptr = driver_ptr->makeDomainFunction();
     driver_ptr->solveEEGForward(my_dipole, *solution_storage_ptr, config_tree);
     
@@ -147,7 +149,7 @@ int main(int argc, char** argv)
     driver_ptr->setElectrodes(my_electrodes, electrode_config);
     std::vector<ScalarType> solution_at_electrode_projections = driver_ptr->evaluateAtElectrodes(*solution_storage_ptr);
     subtract_mean(solution_at_electrode_projections);
-    std::cout << " EEG forward problem solved\n";
+    std::cout << " Numerical solution computed\n";
     
     
     
