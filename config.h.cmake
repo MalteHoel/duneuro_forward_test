@@ -28,16 +28,16 @@
 
 /* end private */
 
-/* Define to the version of test_localized_subtraction_eeg */
+/* Define to the version of duneuro_eeg_forward_test */
 #define DUNEURO_EEG_FORWARD_TEST_VERSION "@DUNEURO_EEG_FORWARD_TEST_VERSION@"
 
-/* Define to the major version of test_localized_subtraction_eeg */
+/* Define to the major version of duneuro_eeg_forward_test */
 #define DUNEURO_EEG_FORWARD_TEST_VERSION_MAJOR @DUNEURO_EEG_FORWARD_TEST_VERSION_MAJOR@
 
-/* Define to the minor version of test_localized_subtraction_eeg */
+/* Define to the minor version of duneuro_eeg_forward_test */
 #define DUNEURO_EEG_FORWARD_TEST_VERSION_MINOR @DUNEURO_EEG_FORWARD_TEST_VERSION_MINOR@
 
-/* Define to the revision of test_localized_subtraction_eeg */
+/* Define to the revision of duneuro_eeg_forward_test */
 #define DUNEURO_EEG_FORWARD_TEST_VERSION_REVISION @DUNEURO_EEG_FORWARD_TEST_VERSION_REVISION@
 
 /* end duneuro_eeg_forward_test
