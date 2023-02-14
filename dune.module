@@ -3,7 +3,7 @@
 ################################
 
 # Name of the module
-Module: test_localized_subtraction_eeg
+Module: duneuro_eeg_forward_test
 Version: 0.1
 Maintainer: m_hoel20@uni-muenster.de
 # Required build dependencies

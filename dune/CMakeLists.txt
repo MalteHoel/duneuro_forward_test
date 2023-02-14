@@ -1,1 +1,1 @@
-add_subdirectory(test_localized_subtraction_eeg)
+add_subdirectory(duneuro_eeg_forward_test)

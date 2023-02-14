@@ -15,7 +15,7 @@ INPUT                 += @top_srcdir@/dune/
 # be excluded from the INPUT source files. This way you can easily exclude a
 # subdirectory from a directory tree whose root is specified with the INPUT tag.
 
-# EXCLUDE               += @top_srcdir@/dune/test_localized_subtraction_eeg/test
+# EXCLUDE               += @top_srcdir@/dune/duneuro_eeg_forward_test/test
 
 # The EXAMPLE_PATH tag can be used to specify one or more files or
 # directories that contain example code fragments that are included (see
@@ -27,4 +27,4 @@ INPUT                 += @top_srcdir@/dune/
 # directories that contain image that are included in the documentation (see
 # the \image command).
 
-# IMAGE_PATH            += @top_srcdir@/dune/test_localized_subtraction_eeg/pics
+# IMAGE_PATH            += @top_srcdir@/dune/duneuro_eeg_forward_test/pics

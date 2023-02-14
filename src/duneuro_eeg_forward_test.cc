@@ -8,41 +8,22 @@
 #include <dune/common/parallel/mpihelper.hh> // An initializer of MPI
 #include <dune/common/exceptions.hh> // We use exceptions
 
-
-// my includes 
-
-#include <vector>                                         // include for std::vector
-
-#include <string>                                         // include for string
-
-#include <stdlib.h>                                       // for the abs function
-
-#include <cmath>                                          // include for std::sqrt
-
-#include <numeric>                                        // include for std::inner_product and std::accumulate
-
-#include <algorithm>                                      // include for std::transform
-
-#include <iterator>                                       // include for std::back_inserter
-
-#include <dune/common/parametertreeparser.hh>             // include for ParameterTree
-
-#include <dune/common/fvector.hh>                         // include for FieldVector
-
-#include <duneuro/driver/driver_factory.hh>               // include for the meeg driver
-
-#include <duneuro/io/dipole_reader.hh>                    // include for reading dipoles
-
-#include <duneuro/common/function.hh>                     // include for the solution
-
-#include <duneuro/io/point_vtk_writer.hh>                 // include for creating vtk-files
-
-#include <duneuro/io/field_vector_reader.hh>              // include for setting the electrodes
-
-#include <duneuro/io/projections_reader.hh>               // include for reading projections for MEG computations
-
-#include <duneuro/common/dense_matrix.hh>                 // include for the DenseMatrix type
-
+#include <vector>
+#include <string>
+#include <stdlib.h>
+#include <cmath>
+#include <numeric>
+#include <algorithm>
+#include <iterator>
+#include <dune/common/parametertreeparser.hh>
+#include <dune/common/fvector.hh>
+#include <duneuro/driver/driver_factory.hh>
+#include <duneuro/io/dipole_reader.hh>
+#include <duneuro/common/function.hh>
+#include <duneuro/io/point_vtk_writer.hh>
+#include <duneuro/io/field_vector_reader.hh>
+#include <duneuro/io/projections_reader.hh>
+#include <duneuro/common/dense_matrix.hh>
 #include <simbiosphere/analytic_solution.hh>              // simbiosphere implements the analytic solution of the EEG forward problem in sphere models
 
 
@@ -125,7 +106,7 @@ int main(int argc, char** argv)
     // Maybe initialize MPI
     Dune::MPIHelper& helper = Dune::MPIHelper::instance(argc, argv);
     
-    std::cout << "The goal of this program is to test the performance of the localized subtraction approach.\n";
+    std::cout << "The goal of this program is to quickly test the EEG forward solver implemented in DUNEuro.\n";
     
     
     // typedefs and constants
@@ -150,19 +131,9 @@ int main(int argc, char** argv)
     std::cout << " Driver created\n";
     
     
-    // set test dipole
-    Dune::FieldVector<ScalarType, dim> dipole_position;
-    Dune::FieldVector<ScalarType, dim> dipole_moment;
-    
-    dipole_position[0] = 133.062778630319;
-    dipole_position[1] = 122.122431180880;
-    dipole_position[2] = 126.459594879281;
-    
-    dipole_moment[0] = 0.0598666259587294;
-    dipole_moment[1] = 0.183131829922543;
-    dipole_moment[2] = -0.981263838101424;
-
-    duneuro::Dipole my_dipole(dipole_position, dipole_moment);
+    // read dipole
+    std::vector<duneuro::Dipole<ScalarType, dim>> dipoles = duneuro::DipoleReader<ScalarType, dim>::read(config_tree.get<std::string>("dipole.filename"));
+    duneuro::Dipole<ScalarType, dim> my_dipole = dipoles[0];
     
     // get EEG forward solution
     std::cout << " Solve EEG forward problem\n";
@@ -196,9 +167,9 @@ int main(int argc, char** argv)
     copy_to_vector_of_arrays(my_electrodes, electrodes_simbio);
 
     std::array<ScalarType, dim> dipole_position_simbio;
-    copy_to_array(dipole_position, dipole_position_simbio);
+    copy_to_array(my_dipole.position(), dipole_position_simbio);
     std::array<ScalarType, dim> dipole_moment_simbio;
-    copy_to_array(dipole_moment, dipole_moment_simbio);
+    copy_to_array(my_dipole.moment(), dipole_moment_simbio);
     
 
     std::vector<ScalarType> analytical_solution = simbiosphere::analytic_solution(radii, 
