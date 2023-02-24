@@ -193,7 +193,7 @@ int main(int argc, char** argv)
     std::cout << " MAG : " << magnitude_error(solution_at_electrode_projections, analytical_solution) << "\n";
     std::cout << " RDM : " << relative_difference_measure(solution_at_electrode_projections, analytical_solution) << "\n";
     
-    std::cout << " Comparision finished\n\n";
+    std::cout << " Comparison finished\n\n";
     
     // visualization
     if(write_output) {
