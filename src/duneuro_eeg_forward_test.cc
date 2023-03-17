@@ -199,7 +199,10 @@ int main(int argc, char** argv)
     if(write_output) {
       std::cout << " We now write the solution in the vtk-format\n";
       std::cout << " We first write the headmodel\n";
-      driver_ptr->write(config_tree.sub("output"));
+      auto volume_writer_ptr = driver_ptr->volumeConductorVTKWriter(config_tree);
+      volume_writer_ptr->addVertexData(*solution_storage_ptr, "potential");
+      volume_writer_ptr->addCellDataGradient(*solution_storage_ptr, "gradient");
+      volume_writer_ptr->write(config_tree.sub("output"));
        	
       std::cout << " We now write the dipole\n";
       duneuro::PointVTKWriter<ScalarType, dim> dipole_writer{my_dipole};
